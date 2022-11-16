@@ -17,8 +17,17 @@ public class PlayerSingletone {
     private PlayerSingletone() {
 
     }
+
+    // delete players from the pool 
     boolean deletePlayers( String name ) {
-      return true;  
+    
+        List<Player> toDelete = new ArrayList<Player>();
+        allPlayers.forEach( p -> {
+            if (p.playerName.equals(name))
+                toDelete.add(p);
+        });
+      allPlayers.removeAll(toDelete);
+      return toDelete.size() > 0;  
     }
 
     // creates player and store in players' pool 

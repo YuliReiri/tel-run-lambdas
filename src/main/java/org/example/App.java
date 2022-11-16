@@ -10,6 +10,7 @@ public class App
     
     static PlayerSingletone playersPool = PlayerSingletone.getInstance();
 
+    // Sumator with Anonymous classes 
     public static void sumatorPlayerExample(Player p1, Player p2, Player p3) {
 
         // summator wich increase player rank
@@ -44,7 +45,8 @@ public class App
 
 
     }
-
+    
+    // Example of comparator works
     public static void comparatorExample() {
         // this is comparator class which compares Player's objects by name 
         class CompareByNameAndState implements Comparator< Player > {
@@ -93,12 +95,15 @@ public class App
         Player p1 = playersPool.cteatePlayer("Ahiva", true, 10, 10);
         Player p2 = playersPool.cteatePlayer( "Sub Zero ", false, 10, 40);
         Player p3 = playersPool.cteatePlayer( "Ninja ", true, 10, 13);
-        Player p4 = playersPool.cteatePlayer( "Aldero ", false, 10, 23);
+        Player p4 = playersPool.cteatePlayer( "Aldero", false, 10, 23);
         Player p5 = playersPool.cteatePlayer( "Sonya ",true, 10, 87);
 
+        playersPool.deletePlayers("Aldero");
       
-       // comparatorExample();
+       comparatorExample();
        sumatorPlayerExample(p1, p2, p3);
+       sumatorExample();
+
 
       /*   Player bot1 = new Player("bot1", true, 2, 2) {
             public boolean equals( Player obj ) {
@@ -109,6 +114,7 @@ public class App
        
     }
 
+    // example of lambda function
     public static void sumatorExample() {
         Sumator< Integer > s = (i1, i2) -> i1 + i2;     
         Sumator< Integer > sX2 = (i1, i2) -> (i1 + i2)*2;     
